@@ -1,6 +1,6 @@
 import { Container, Typography } from "@material-ui/core";
-import { Book, Dashboard, ExitToApp, Menu, People } from "@material-ui/icons";
-import { useStyle } from "../../Style";
+import { Book, Dashboard, ExitToApp , People } from "@material-ui/icons";
+import { useStyle } from "./Style";
 import logo from "../../assets/images/logo2.png"
 import { Link } from "react-router-dom";
 
@@ -12,31 +12,34 @@ const Sidebar = () => {
   return(
     <Container className={classes.containerSidebar}>
       <div className={classes.itemLogo}>
-        <img src={logo} className={classes.logo}/>
+        <img src={logo} className={classes.logo} alt=""bookLogo/>
       </div>
       <div className={classes.menu}>
         <Link to="/" className={classes.link}>
           <div className={classes.item}>
-            <Dashboard className={classes.icon}/>
-            <Typography className={classes.text}>
-              Home
-            </Typography>
-          </div>
-        </Link>
-        <Link to="/books" className={classes.link}>
-          <div className={classes.item}>
             <Book className={classes.icon}/>
             <Typography className={classes.text}>
-              Books
+              Livres
             </Typography>
+            <span className={classes.line}></span>
+          </div>
+        </Link>
+        <Link to="/dashboard" className={classes.link}>
+          <div className={classes.item}>
+            <Dashboard className={classes.icon} />
+            <Typography className={classes.text}>
+              Bord
+            </Typography>
+            <span className={classes.line}></span>
           </div>
         </Link>
         <Link to="/users" className={classes.link}>
           <div className={classes.item}>
             <People className={classes.icon}/>
             <Typography className={classes.text}>
-              Users
+              Utilisateurs
             </Typography>
+            <span className={classes.line}></span>
           </div>
         </Link>
       </div>
@@ -47,6 +50,7 @@ const Sidebar = () => {
           <Typography className={classes.text}>
             Logout
           </Typography>
+          <span className={classes.line}></span>
         </div>
       </Link>
     </Container>
