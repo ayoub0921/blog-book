@@ -4,7 +4,7 @@ import "toastify-js/src/toastify.css"
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./Components/Pages/Dashboard"
 import Books from "./Components/Pages/books/Books";
-import Users from "./Components/Pages/Users";
+import Users from "./Components/Pages/Users/Users";
 import Logout from "./Components/Pages/Logout";
 
 
