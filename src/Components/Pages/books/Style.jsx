@@ -5,13 +5,8 @@ const blueColor =  '#192a56';
 const greyColor = "#F6F6F6"
 
 export const useStyles = makeStyles((theme)=>({
-
-    
-
     container :{
-
         padding: "20px"
-
     },
 
     title: {
@@ -53,8 +48,6 @@ export const useStyles = makeStyles((theme)=>({
         padding: "20px"
     },
 
-
-
     page: {
         textAlign: 'center',
         fontSize: '27px',
@@ -84,8 +77,4 @@ export const useStyles = makeStyles((theme)=>({
         fontSize: "18px",
         boxShadow: "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
     }
-
-
-
-
 }))

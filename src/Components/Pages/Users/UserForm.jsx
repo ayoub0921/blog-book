@@ -1,69 +1,72 @@
-import { Button, Container, Fab, Grid, Modal, TextField, Tooltip } from '@material-ui/core'
-import { Add } from '@material-ui/icons'
-import React, { useState } from 'react'
+import { Grid } from '@material-ui/core'
+import { Form, Formik } from 'formik'
+import React from 'react'
 import { useStyle } from './UsersStyle'
+import * as Yup from 'yup';
+import Textfield from '../books/TextfieldUi'
+import { Typography } from '@mui/material'
 
 
 
-function UsersAdd() {
+function UserForm() {
 
-  const [open, setOpen] = useState(false)
-  
-  const [currency, setCurrency] = React.useState('Action');
-  
-  const handleChange = (event) => {
-    setCurrency(event.target.value);
-  };
-  
   const classes = useStyle()
+
+  const INITIAL_FORM_STATE = {
+    nom: "",
+    prenom: "",
+    email: "",
+    password: "",
+    tel: "",
+  }
+
+  const FORM_VALIDATION = Yup.object().shape({
+    nom: Yup.string()
+           .required('Obligatoire*'),
+    prenom: Yup.string()
+           .required('Obligatoire*'),
+    email: Yup.string()
+           .required('Obligatoire*'),
+    password: Yup.string()
+           .required('Obligatoire*'),
+    tel: Yup.string()
+           .required('Obligatoire*')
+
+
+  })
+
   return (
-    <>
-    <Tooltip title="Add" aria-label='add' onClick={() => setOpen(true)}>
-      <Fab color='primary' className={classes.fab}>
-        <Add />
-      </Fab>
-    </Tooltip>
-    <Modal open={open}>
-      <Container className={classes.container}>
-        <h3 className={classes.title}>Ajouter Des Livres</h3>
-        <hr className={classes.hr}/>
-        <div className={classes.Rows}>
-          <Grid container>
-            <Grid item xs={12} sm={6}>
-              <TextField label="Nom" variant="outlined" className={classes.textTitre}/>
-            </Grid>
-            <Grid item xs={12} sm={6} className={classes.gridC}>
-              <TextField label="Prenom" variant="outlined" className={classes.textTitre}/>
-            </Grid>
-          </Grid>
+    <Formik initialValues={{...INITIAL_FORM_STATE}} validationSchema={FORM_VALIDATION}>
+      <Form sx={{ flexGrow: 1 }} className={classes.form}>
+        <div>
+          <Typography className={classes.title} variant='h6'>
+            Ajouter des utilisateurs
+          </Typography>
+          <span className={classes.line}></span>
         </div>
-        <div className={classes.Rows}>
-          <Grid container>
-            <Grid item xs={12} sm={6}>
-            <TextField label="Email" variant="outlined" className={classes.textTitre}/>
-           </Grid>
-           <Grid item xs={12} sm={6}>
-              <TextField label="Password" variant="outlined" className={classes.textTitre}/>
-            </Grid>
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <Textfield  name="nom" label="Nom" />
           </Grid>
-        </div>
-        <div className={classes.Rows}>
-          <Grid container>
-            <Grid item xs={12} sm={6}>
-              <TextField label="Tel" variant="outlined" className={classes.textTitre}/>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <div className={classes.btns}>
-                <Button variant='text' className={classes.btn}>Ajouter</Button>
-                <Button variant='text' className={classes.btn} onClick={()=> setOpen(false)}>Cancel</Button>
-              </div>
-            </Grid>
+          <Grid item xs={6}>
+            <Textfield   name="prenom" label='Prenom' />
           </Grid>
-        </div>
-      </Container>
-    </Modal>
-    </>
+          <Grid item xs={6}>
+            <Textfield   name="email" label='Email' type='email' />
+          </Grid>
+          <Grid item xs={6}>
+            <Textfield   name="password" label='Password' />
+          </Grid>
+          <Grid item xs={6}>
+            <Textfield  name="tel" label='Telephone' />
+          </Grid>
+          <Grid item xs={6}>
+            <button type='submit' className={classes.btn}>Ajouter</button>
+          </Grid> 
+        </Grid>
+      </Form>
+    </Formik>
   )
 }
 
-export default UsersAdd
+export default UserForm

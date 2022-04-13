@@ -3,14 +3,17 @@ import React, { useState } from 'react'
 import UserList from './UserList';
 import { v4 as uuid } from 'uuid';
 import Toastify from 'toastify-js';
-
+import UserForm from './UserForm';
+import { useStyle } from './UsersStyle';
 
 
 function Users() {
+  const classes = useStyle();
 
   const [users,setUsers] = useState([
-    {id:uuid(),nom: 'ayoub',prenom:"benyahia",email:"ayoub@gmail.com",password:"123456789", tel:'0611223344'},
-    {id:uuid(),nom: 'ayoub',prenom:"guidi",email:"ayoub@gmail.com",password:"1234789", tel:'0613344'},
+    {id:uuid(),nom: 'ayoub',prenom:"ben",email:"ayoub@gmail.com",password:"abcd123456",tel:'0610203040'},
+    {id:uuid(),nom: 'ayoub',prenom:"ben",email:"ayoub@gmail.com",password:"abcd123456",tel:'0610203040'},
+    {id:uuid(),nom: 'ayoub',prenom:"ben",email:"ayoub@gmail.com",password:"abcd123456",tel:'0610203040'},
   ])
 
   // ADD BOOK HANDLER
@@ -26,7 +29,7 @@ function Users() {
     setUsers(new_users)
     Toastify({
       duration: 2000,
-      text: "livre est supprimer avec Succées",
+      text: "livre est supprimer avec reussir",
       close: true,
       className: "info",
       gravity: "bottom",
@@ -38,9 +41,13 @@ function Users() {
   }
 
   return (
-    <div style={{padding: '20px', backgroundColor: 'aqua'}}>
-      <Typography variant='h2' style={{paddingBottom: '10px', textAlign: "center"}}>La liste des utilisateurs</Typography>
-      <UserList users={users} onDeletUser={handlDeletUser} />
+
+    <div style={{padding: '20px'}}>
+      <div>
+        <Typography variant='h2' className={classes.page}>Les utilisateurs</Typography>
+        <UserForm />
+        <UserList users={users} onDeletUser={handlDeletUser} />
+      </div>
     </div>
   )
 }

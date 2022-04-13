@@ -28,7 +28,7 @@ const Sidebar = () => {
           <div className={classes.item}>
             <Dashboard className={classes.icon} />
             <Typography className={classes.text}>
-              Bord
+              Board
             </Typography>
             <span className={classes.line}></span>
           </div>
