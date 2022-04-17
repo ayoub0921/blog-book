@@ -27,7 +27,7 @@ function Books() {
       setBooks(new_books)
       Toastify({
         duration: 2000,
-        text: "livre est supprimer avec reussir",
+        text: "Un livre est supprimé avec succès",
         close: true,
         className: "info",
         gravity: "bottom",

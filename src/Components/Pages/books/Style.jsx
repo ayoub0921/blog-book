@@ -27,6 +27,10 @@ export const useStyles = makeStyles((theme)=>({
 
     },
 
+    textfield: {
+        width: '100%'
+    },
+
     btn: {
         backgroundColor: "#3c40c6",
         padding: "10px",

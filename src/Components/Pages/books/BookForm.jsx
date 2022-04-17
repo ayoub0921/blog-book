@@ -86,19 +86,19 @@ const BookForm = ({onAddBook}) => {
         </div>
         <Grid container spacing={2}>
             <Grid item xs={6}>
-              <Textfield  name="title" label="Title" />
+              <Textfield  name="title" label="Title" className={classes.textfield}/>
             </Grid>
             <Grid item xs={6}>
-              <Textfield   name="auteur" label='Auteur' />
+              <Textfield   name="auteur" label='Auteur' className={classes.textfield}/>
             </Grid>
             <Grid item xs={6}>
-              <Textfield   name="price" label='Prix' type='number' />
+              <Textfield   name="price" label='Prix' type='number' className={classes.textfield}/>
             </Grid>
             <Grid item xs={6}>
-              <Textfield   name="quantity" label='Quantity' type='number'  />
+              <Textfield   name="quantity" label='Quantity' type='number'  className={classes.textfield}/>
             </Grid>
             <Grid item xs={6}>
-              <Textfield  name="category" label='Categorie' />
+              <Textfield  name="category" label='Categorie' className={classes.textfield}/>
             </Grid>
             <Grid item xs={6}>
               <button type='submit' className={classes.btn}>Ajouter</button>

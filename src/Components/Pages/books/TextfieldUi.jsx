@@ -25,7 +25,7 @@ const TextfieldWrapper = ({
   
 
   return (
-    <TextField {...configTextField} style={{width:"100%"}} />
+    <TextField {...configTextField} />
   )
 }
 

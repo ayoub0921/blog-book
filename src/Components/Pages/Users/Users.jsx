@@ -29,7 +29,7 @@ function Users() {
     setUsers(new_users)
     Toastify({
       duration: 2000,
-      text: "livre est supprimer avec reussir",
+      text: "Un utilisateur est supprimé avec succès",
       close: true,
       className: "info",
       gravity: "bottom",

@@ -26,9 +26,9 @@ function UsersTable(props) {
   const {length: count} = props.users;
 
 
-  if(count === 0) 
-        return <p className={classes.nothing}>Aucun utilisateur dans le tableau</p>
   return (
+    <>
+    {count === 0 ? <p className={classes.nothing}>Aucun utilisateur dans le tableau</p> :
     <div className={classes.container}>
       <div className={classes.head}>
         <Typography className={classes.title} variant='h6'>
@@ -66,7 +66,8 @@ function UsersTable(props) {
           </TableBody>
         </Table>
       </TableContainer>
-    </div>
+    </div>}
+    </>
   )
 }
 
